@@ -64,41 +64,42 @@ public class DataBase {
 
    public void sortData(){
        do{
-               System.out.println("W jak sposób chcesz posortować dane?"+
+               System.out.print("W jak sposób chcesz posortować dane?"+
                        "\n1 - po id"+
                        "\n2 - po dyscyplinie"+
                        "\n3 - po nazwie zawodnika/drużyny"+
                        "\n4 - po wygranej"+
                        "\n5 - po punktacji"+
-                       "\n0 - zakończ");
-               answerNum= scanner.nextInt();
-               switch (answerNum) {
-                   case 1:
+                       "\n0 - zakończ"+
+                       "Podaj numer opcji: ");
+               answer= scanner.nextLine();
+               switch (answer) {
+                   case "1":
                        IdComparator idComparator= new IdComparator();
                        Collections.sort(temp,idComparator);
                        break;
-                   case 2:
+                   case "2":
                        DisciplinComparator disciplinComparator= new DisciplinComparator();
                        Collections.sort(temp,disciplinComparator);
                        break;
-                   case 3:
+                   case "3":
                        PlayerComparator playerComparator= new PlayerComparator();
                        Collections.sort(temp,playerComparator);
                        break;
-                   case 4:
+                   case "4":
                        WonComparator wonComparator= new WonComparator();
                        Collections.sort(temp,wonComparator);
                        break;
-                   case 5:
+                   case "5":
                        PointsComparator pointsComparator= new PointsComparator();
                        Collections.sort(temp,pointsComparator);
                        break;
-                   case 0:
+                   case "0":
                        break;
                    default:
-                       System.out.println("Wybrano niesprawidłową opcję");
+                       System.err.println("Wybrano niesprawidłową opcję");
                }
-               }while (answerNum!=0);
+               }while (!(answer.equals("0")));
 
    }
 

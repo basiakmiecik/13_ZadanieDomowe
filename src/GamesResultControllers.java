@@ -11,11 +11,11 @@ public class GamesResultControllers {
 
         do {
 
-            System.out.println("Witam w programie do archiwizacji wyników. \n Co chcesz teraz zrobić:"
-                    + "\ndodaj - dodaj rekord" +
-                    "\nusun - usun rekord" +
-                    "\npokaz - pokaż zapisane dane" +
-                    "\nkoniec - zakończ - zapisz do pliku");
+            System.out.println("Witam w programie do archiwizacji wyników. \nCo chcesz teraz zrobić, wpisz odpoweidnie polecenie:"+
+                    "\n     'dodaj' - dodaj rekord" +
+                    "\n     'usun' - usun rekord" +
+                    "\n     'pokaz' - pokaż zapisane dane" +
+                    "\n     'koniec' - zakończ - zapisz do pliku");
             answer=scanner.nextLine();
             switch (answer) {
                 case "dodaj":
@@ -32,7 +32,7 @@ public class GamesResultControllers {
                     dataBase.saveData();
                     break;
                 default:
-                    System.out.println("Wybrano nieprawidłową opcję wybierz ponownie");
+                    System.err.println("Wybrano nieprawidłową opcję wybierz ponownie");
             }
 
         } while (!(answer.equals("koniec")));
