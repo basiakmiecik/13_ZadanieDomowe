@@ -8,12 +8,16 @@ public class ReadFile {
     List<String> list = new ArrayList<>();
 
     public void readerFile() throws FileNotFoundException {
-        FileReader file = new FileReader("stats.csv");
-        Scanner scanner = new Scanner(file);
+        try {
+            FileReader file = new FileReader("stats.csv");
+            Scanner scanner = new Scanner(file);
 
-        do {
-            list.add(scanner.nextLine());
-        } while (scanner.hasNextLine());
+            do {
+                list.add(scanner.nextLine());
+            } while (scanner.hasNextLine());
+        }catch (FileNotFoundException e){
+            System.err.println("Plik nie istnieje! Nie pobrano żadnych danych!");
+        }
 
     }
 
@@ -22,7 +26,7 @@ public class ReadFile {
         try {
             readerFile();
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.err.println("Plik nie istnieje! Nie pobrano żadnych danych!");
         }
         List<ResultsOfGame> results = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {

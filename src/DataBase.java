@@ -103,7 +103,11 @@ public class DataBase {
    }
 
    public void showData(){
-       System.out.println(temp.toString()+"\n");
+       for (ResultsOfGame resultsOfGame : temp) {
+
+           System.out.println(resultsOfGame.toString());
+       }
+
    }
 
     public void saveData() throws IOException {
